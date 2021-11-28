@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.raywenderlich.android.simplenote">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+     <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <!-- Security is important for the credibility of your app, especially when it comes to securing users’ private data.
+    Storing data on external storage allows the data to be visible to other apps.
+    That’s why it’s advised to avoid using external storage. Or at least doing so, without a strong security system and encryption.
+    To prevent users from installing the app on external storage you can add android:installLocation="internalOnly" to the manifest file. -->
+    <!-- Another best practice you can use to enhance your app’s security is to prevent the contents of the app’s private data directory from being downloaded with adb backup.
+    You do this by setting the android:allowBackup="false" in the manifest file. -->
+    <application
+        android:installLocation="internalOnly"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Splash Activity -->
+        <activity android:name=".ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main Activity -->
+        <activity android:name=".ui.MainActivity" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
